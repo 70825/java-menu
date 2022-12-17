@@ -13,13 +13,17 @@ public class NotEatView {
     private static final String NOT_EAT_MESSAGE = "%s(이)가 못 먹는 메뉴를 입력해 주세요.";
 
     public static List<String> getNotEatValue(String name) {
-        System.out.printf(NOT_EAT_MESSAGE + NEWLINE, name);
-
-        String result = Console.readLine();
-        List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
-        System.out.println();
-        validate(resultArray);
-        return resultArray;
+        try {
+            System.out.printf(NOT_EAT_MESSAGE + NEWLINE, name);
+            String result = Console.readLine();
+            List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
+            System.out.println();
+            validate(resultArray);
+            return resultArray;
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + NEWLINE);
+            return getNotEatValue(name);
+        }
     }
 
     private static void validate(List<String> foods) {

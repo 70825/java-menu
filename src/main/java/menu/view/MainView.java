@@ -19,13 +19,17 @@ public class MainView {
     }
 
     public static List<String> getMainValue() {
-        System.out.println(INPUT_MESSAGE);
-
-        String result = Console.readLine();
-        List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
-        System.out.println();
-        validate(resultArray);
-        return resultArray;
+        try {
+            System.out.println(INPUT_MESSAGE);
+            String result = Console.readLine();
+            List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
+            System.out.println();
+            validate(resultArray);
+            return resultArray;
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + NEWLINE);
+            return getMainValue();
+        }
     }
 
     private static void validate(List<String> names) {

@@ -23,16 +23,8 @@ public class MainController {
 
         MainView.printMainScreen();
 
-        while (true) {
-            try {
-                people.clear();
-                List<String> names = MainView.getMainValue();
-                startNotEat(names);
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage() + NEWLINE);
-            }
-        }
+        List<String> names = MainView.getMainValue();
+        startNotEat(names);
     }
 
     private void startNotEat(List<String> names) {
