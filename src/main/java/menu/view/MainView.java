@@ -25,8 +25,17 @@ public class MainView {
         try {
             List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
             validate(resultArray);
+            return resultArray;
         } catch (IllegalArgumentException e) {
-
+            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
         }
+    }
+
+    private static void validate(List<String> names) {
+        names.forEach(name -> {
+            if (!(2 <= name.length() && name.length() <= 4)) {
+                throw new IllegalArgumentException("[ERROR] 이름은 최소 2글자에서 최대 4글자여야 합니다.");
+            }
+        });
     }
 }
