@@ -23,4 +23,21 @@ public class ResultView {
 
         System.out.println(stringJoiner);
     }
+
+    public static void printAll(List<String> names, List<List<String>> allFoods) {
+        List<StringJoiner> stringJoiners = new ArrayList<>();
+        for (int i = 0; i < names.size(); i++) {
+            stringJoiners.add(new StringJoiner(" | ", "[ ", " ]"));
+        }
+
+        for (int i = 0; i < names.size(); i++) {
+            String name = names.get(i);
+            stringJoiners.get(i).add(name);
+            for (int j = 0; j < 5; j++) {
+                stringJoiners.get(i).add(allFoods.get(j).get(i));
+            }
+        }
+
+        stringJoiners.forEach(System.out::println);
+    }
 }
