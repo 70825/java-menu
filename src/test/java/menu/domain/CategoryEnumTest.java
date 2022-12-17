@@ -31,7 +31,8 @@ public class CategoryEnumTest {
                 Arguments.of(2, "한식"),
                 Arguments.of(3, "중식"),
                 Arguments.of(4, "아시안"),
-                Arguments.of(5, "양식")
+                Arguments.of(5, "양식"),
+                Arguments.of(10, "")
         );
     }
 }
