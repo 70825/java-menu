@@ -28,11 +28,11 @@ public class Categories {
         return flag.get();
     }
 
-    public static String getCategory(String name) {
+    public static List<String> getCategory(String name) {
         return categories.stream()
                 .filter(category -> category.getName().equals(name))
                 .collect(Collectors.toList())
                 .get(0)
-                .getName();
+                .getFoods();
     }
 }
