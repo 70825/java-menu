@@ -3,11 +3,9 @@ package menu.service;
 import camp.nextstep.edu.missionutils.Randoms;
 import menu.controller.MainController;
 import menu.domain.Categories;
-import menu.domain.Category;
 import menu.domain.CategoryEnum;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
