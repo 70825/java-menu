@@ -7,7 +7,8 @@ public enum CategoryEnum {
     TWO("한식", 2),
     THREE("중식", 3),
     FOUR("아시안", 4),
-    FIVE("양식", 5);
+    FIVE("양식", 5),
+    EMPTY("", 0);
 
     private final String categoryName;
     private final Integer categoryNumber;
@@ -21,7 +22,7 @@ public enum CategoryEnum {
         return Arrays.stream(CategoryEnum.values())
                 .filter(category -> category.categoryNumber == val)
                 .findAny()
-                .get()
+                .orElse(EMPTY)
                 .getTransferCategoryName();
     }
 
