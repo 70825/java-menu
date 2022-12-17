@@ -13,10 +13,6 @@ public class Categories {
         categories.add(category);
     }
 
-    public static List<Category> getCategories() {
-        return categories;
-    }
-
     public static boolean findByName(String name) {
         AtomicBoolean flag = new AtomicBoolean(false);
         categories.forEach(category -> {
