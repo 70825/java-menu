@@ -3,6 +3,7 @@ package menu.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
 public class Categories {
 
@@ -25,5 +26,13 @@ public class Categories {
         });
 
         return flag.get();
+    }
+
+    public static String getCategory(String name) {
+        return categories.stream()
+                .filter(category -> category.getName().equals(name))
+                .collect(Collectors.toList())
+                .get(0)
+                .getName();
     }
 }
