@@ -29,8 +29,8 @@ public class MainView {
     }
 
     private static void validate(List<String> names) {
-        if (names.size() >= 6) {
-            throw new IllegalArgumentException("[ERROR] 코치는 최대 5명까지 함께 식사할 수 있습니다.");
+        if (names.size() < 2 || names.size() >= 6) {
+            throw new IllegalArgumentException("[ERROR] 코치는 2명 ~ 5명에서 함께 식사할 수 있습니다.");
         }
 
         names.forEach(name -> {
