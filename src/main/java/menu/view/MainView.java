@@ -38,7 +38,7 @@ public class MainView {
         }
 
         if (names.size() >= 6) {
-            throw new IllegalArgumentException("[ERROR] 코치는 최대 5명 까지 입력할 수 있습니다.");
+            throw new IllegalArgumentException("[ERROR] 코치는 최대 5명까지 입력할 수 있습니다.");
         }
 
         names.forEach(name -> {
