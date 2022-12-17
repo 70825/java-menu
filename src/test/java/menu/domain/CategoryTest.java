@@ -18,7 +18,7 @@ public class CategoryTest {
         boolean expected = true;
 
         // when
-        boolean actual  = category.findByName(value);
+        boolean actual = category.findByName(value);
 
         // then
         assertEquals(actual, expected, "[ERROR] 카테고리 안에 메뉴가 있는데 없다고 나옵니다.");
@@ -33,7 +33,7 @@ public class CategoryTest {
         boolean expected = false;
 
         // when
-        boolean actual  = category.findByName(value);
+        boolean actual = category.findByName(value);
 
         // then
         assertEquals(actual, expected, "[ERROR] 카테고리 안에 메뉴가 없는데 있다고 나옵니다.");

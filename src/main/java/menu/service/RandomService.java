@@ -14,7 +14,7 @@ public class RandomService {
     public List<String> randomGetCategory() {
         List<String> resultCategories = new ArrayList<>();
 
-        while(resultCategories.size() != 5) {
+        while (resultCategories.size() != 5) {
             int categoryNum = Randoms.pickNumberInRange(1, 5);
             String result = transferCategory(categoryNum);
             if (resultCategories.stream().filter(name -> name.equals(result)).count() < 2) {

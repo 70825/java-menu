@@ -38,7 +38,7 @@ public class NotEatView {
         foods.forEach(food -> {
             if (!Categories.findByName(food)) {
                 throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
-            };
+            }
         });
     }
 }
