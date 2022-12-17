@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class ResultView {
-    private static final String NEWLINE = "\n";
 
     private static final String RESULT_MESSAGE = "메뉴 추천 결과입니다.";
     private static final String ONE = "[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]";
