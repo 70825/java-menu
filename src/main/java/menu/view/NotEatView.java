@@ -15,15 +15,11 @@ public class NotEatView {
     public static List<String> getNotEatValue(String name) {
         System.out.printf(NOT_EAT_MESSAGE + NEWLINE, name);
 
-        try {
-            String result = Console.readLine();
-            List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
-            System.out.println();
-            validate(resultArray);
-            return resultArray;
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
-        }
+        String result = Console.readLine();
+        List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
+        System.out.println();
+        validate(resultArray);
+        return resultArray;
     }
 
     private static void validate(List<String> foods) {
