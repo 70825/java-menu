@@ -2,6 +2,7 @@ package menu.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Categories {
 
@@ -13,5 +14,16 @@ public class Categories {
 
     public static List<Category> getCategories() {
         return categories;
+    }
+
+    public static boolean findByName(String name) {
+        AtomicBoolean flag = new AtomicBoolean(false);
+        categories.forEach(category -> {
+            if (category.findByName(name)) {
+                flag.set(true);
+            }
+        });
+
+        return flag.get();
     }
 }
