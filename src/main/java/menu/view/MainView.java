@@ -24,6 +24,7 @@ public class MainView {
         try {
             String result = Console.readLine();
             List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
+            System.out.println();
             validate(resultArray);
             return resultArray;
         } catch (IllegalArgumentException e) {
