@@ -6,7 +6,9 @@ import menu.service.InitService;
 import menu.service.RandomService;
 import menu.view.MainView;
 import menu.view.NotEatView;
+import menu.view.ResultView;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -43,10 +45,22 @@ public class MainController {
 
     private void startPick(List<String> names) {
         List<String> weekCategory = randomService.randomGetCategory();
+        List<List<String>> resultMenu = new ArrayList<>();
+
         List<String> monday = randomService.randomGetMenu(weekCategory.get(0), names);
         List<String> tuesday = randomService.randomGetMenu(weekCategory.get(1), names);
         List<String> wednesday = randomService.randomGetMenu(weekCategory.get(2), names);
         List<String> thursday = randomService.randomGetMenu(weekCategory.get(3), names);
         List<String> friday = randomService.randomGetMenu(weekCategory.get(4), names);
+
+        resultMenu.add(monday);
+        resultMenu.add(tuesday);
+        resultMenu.add(wednesday);
+        resultMenu.add(thursday);
+        resultMenu.add(friday);
+
+        ResultView.printResult();
+        ResultView.printCategory(weekCategory);
+        ResultView.printAll(names, resultMenu);
     }
 }
