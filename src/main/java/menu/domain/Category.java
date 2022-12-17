@@ -11,10 +11,6 @@ public class Category {
         this.foods = foods;
     }
 
-    public void addFood(String name) {
-        foods.add(name);
-    }
-
     public String getName() {
         return name;
     }
