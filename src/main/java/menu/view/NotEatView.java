@@ -31,6 +31,10 @@ public class NotEatView {
             throw new IllegalArgumentException("[ERROR] 못 먹는 음식은 최대 2개여야 합니다.");
         }
 
+        if (foods.size() == 1 && foods.get(0).equals("")) {
+            return;
+        }
+
         foods.forEach(food -> {
             if (!Categories.findByName(food)) {
                 throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
