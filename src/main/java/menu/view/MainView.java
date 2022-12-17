@@ -21,15 +21,11 @@ public class MainView {
     public static List<String> getMainValue() {
         System.out.println(INPUT_MESSAGE);
 
-        try {
-            String result = Console.readLine();
-            List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
-            System.out.println();
-            validate(resultArray);
-            return resultArray;
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
-        }
+        String result = Console.readLine();
+        List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
+        System.out.println();
+        validate(resultArray);
+        return resultArray;
     }
 
     private static void validate(List<String> names) {
