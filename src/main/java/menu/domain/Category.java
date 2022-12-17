@@ -1,11 +1,10 @@
 package menu.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
-    private static String name;
-    private static List<String> foods;
+    private String name;
+    private List<String> foods;
 
     public Category(String name, List<String> foods) {
         this.name = name;
@@ -14,6 +13,10 @@ public class Category {
 
     public void addFood(String name) {
         foods.add(name);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Boolean findByName(String name) {
