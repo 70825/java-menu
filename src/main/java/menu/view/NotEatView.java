@@ -1,6 +1,7 @@
 package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import menu.domain.Categories;
 import menu.domain.Foods;
 
 import java.util.Arrays;
@@ -27,9 +28,11 @@ public class NotEatView {
 
     private static void validate(List<String> foods) {
         foods.forEach(food -> {
-            if (!(Foods.findByName(food))) {
-                throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
-            }
+            Categories.getCategories().forEach(category -> {
+                if (!category.findByName(food)) {
+                    throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
+                }
+            });
         });
     }
 }
