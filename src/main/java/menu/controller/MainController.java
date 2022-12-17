@@ -1,7 +1,5 @@
 package menu.controller;
 
-import menu.domain.Categories;
-import menu.domain.Category;
 import menu.service.InitService;
 import menu.service.RandomService;
 import menu.view.MainView;
@@ -13,7 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MainController {
-    private static final String NEWLINE = "\n";
     InitService initService = new InitService();
     RandomService randomService = new RandomService();
     public static final HashMap<String, List<String>> people = new HashMap<>();
