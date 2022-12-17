@@ -42,10 +42,10 @@ public class MainController {
         resultMenu.add(randomService.randomGetMenu(weekCategory.get(3), names));
         resultMenu.add(randomService.randomGetMenu(weekCategory.get(4), names));
 
-        printAllResult(weekCategory, resultMenu);
+        printAllResult(names, weekCategory, resultMenu);
     }
 
-    private void printAllResult(List<String> weekCategory, List<List<String>> resultMenu) {
+    private void printAllResult(List<String> names, List<String> weekCategory, List<List<String>> resultMenu) {
         ResultView.printResult();
         ResultView.printCategory(weekCategory);
         ResultView.printAll(names, resultMenu);
