@@ -39,18 +39,16 @@ public class MainController {
         List<String> weekCategory = randomService.randomGetCategory();
         List<List<String>> resultMenu = new ArrayList<>();
 
-        List<String> monday = randomService.randomGetMenu(weekCategory.get(0), names);
-        List<String> tuesday = randomService.randomGetMenu(weekCategory.get(1), names);
-        List<String> wednesday = randomService.randomGetMenu(weekCategory.get(2), names);
-        List<String> thursday = randomService.randomGetMenu(weekCategory.get(3), names);
-        List<String> friday = randomService.randomGetMenu(weekCategory.get(4), names);
+        resultMenu.add(randomService.randomGetMenu(weekCategory.get(0), names));
+        resultMenu.add(randomService.randomGetMenu(weekCategory.get(1), names));
+        resultMenu.add(randomService.randomGetMenu(weekCategory.get(2), names));
+        resultMenu.add(randomService.randomGetMenu(weekCategory.get(3), names));
+        resultMenu.add(randomService.randomGetMenu(weekCategory.get(4), names));
 
-        resultMenu.add(monday);
-        resultMenu.add(tuesday);
-        resultMenu.add(wednesday);
-        resultMenu.add(thursday);
-        resultMenu.add(friday);
+        printAllResult(weekCategory, resultMenu);
+    }
 
+    private void printAllResult(List<String> weekCategory, List<List<String>> resultMenu) {
         ResultView.printResult();
         ResultView.printCategory(weekCategory);
         ResultView.printAll(names, resultMenu);
