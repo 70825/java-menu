@@ -24,4 +24,12 @@ public class NotEatView {
             throw new IllegalArgumentException("[ERROR] 잘못된 입력입니다.");
         }
     }
+
+    private static void validate(List<String> foods) {
+        foods.forEach(food -> {
+            if (!(Foods.findByName(food))) {
+                throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
+            }
+        });
+    }
 }
