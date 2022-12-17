@@ -9,7 +9,7 @@ public class ResultView {
 
     private static final String RESULT_MESSAGE = "메뉴 추천 결과입니다.";
     private static final String ONE = "[ 구분 | 월요일 | 화요일 | 수요일 | 목요일 | 금요일 ]";
-    private static final String THREE = "[ %s | %s | %s | %s | %s | %s ]";
+    private static final String END = "추천을 완료했습니다.";
 
     public static void printResult() {
         System.out.println(RESULT_MESSAGE);
@@ -39,5 +39,10 @@ public class ResultView {
         }
 
         stringJoiners.forEach(System.out::println);
+        System.out.println();
+    }
+
+    public static void printEnd() {
+        System.out.println(END);
     }
 }
