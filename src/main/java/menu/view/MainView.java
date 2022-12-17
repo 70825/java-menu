@@ -33,6 +33,10 @@ public class MainView {
     }
 
     private static void validate(List<String> names) {
+        if (names.size() >= 6) {
+            throw new IllegalArgumentException("[ERROR] 코치는 최대 5명까지 함께 식사할 수 있습니다.");
+        }
+
         names.forEach(name -> {
             if (!(2 <= name.length() && name.length() <= 4)) {
                 throw new IllegalArgumentException("[ERROR] 이름은 최소 2글자에서 최대 4글자여야 합니다.");
