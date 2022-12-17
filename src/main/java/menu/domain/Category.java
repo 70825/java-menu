@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Category {
     private static String name;
-    private static List<String> foods = new ArrayList<>();
+    private static List<String> foods;
 
-    public void Category(String name, List<String> foods) {
+    public Category(String name, List<String> foods) {
         this.name = name;
         this.foods = foods;
     }
