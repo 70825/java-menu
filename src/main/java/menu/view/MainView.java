@@ -21,8 +21,8 @@ public class MainView {
     public static List<String> getMainValue() {
         System.out.println(INPUT_MESSAGE);
 
-        String result = Console.readLine();
         try {
+            String result = Console.readLine();
             List<String> resultArray = Arrays.stream(result.split(",")).collect(Collectors.toList());
             validate(resultArray);
             return resultArray;
