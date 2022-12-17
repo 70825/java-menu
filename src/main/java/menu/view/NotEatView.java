@@ -20,7 +20,7 @@ public class NotEatView {
             System.out.println();
             validate(resultArray);
             return resultArray;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage() + NEWLINE);
             return getNotEatValue(name);
         }
