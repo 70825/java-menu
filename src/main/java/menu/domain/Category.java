@@ -12,11 +12,11 @@ public class Category {
         this.foods = foods;
     }
 
-    public static void addFood(String name) {
+    public void addFood(String name) {
         foods.add(name);
     }
 
-    public static Boolean findByName(String name) {
+    public Boolean findByName(String name) {
         int result = (int) foods.stream()
                 .filter(food -> food.equals(name))
                 .count();
