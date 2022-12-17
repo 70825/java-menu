@@ -21,10 +21,11 @@ public class MainController {
     public void start() {
         initService.init();
 
+        MainView.printMainScreen();
+
         while (true) {
             try {
                 people.clear();
-                MainView.printMainScreen();
                 List<String> names = MainView.getMainValue();
                 startNotEat(names);
                 break;
@@ -36,7 +37,6 @@ public class MainController {
 
     private void startNotEat(List<String> names) {
         names.forEach(name -> {
-            people.put(name, List.of());
             people.put(name, NotEatView.getNotEatValue(name));
         });
 
