@@ -16,5 +16,11 @@ public class ResultView {
         System.out.println(ONE);
     }
 
+    public static void printCategory(List<String> category) {
+        StringJoiner stringJoiner = new StringJoiner(" | ", "[ 카테고리 | ", " ]");
 
+        category.forEach(stringJoiner::add);
+
+        System.out.println(stringJoiner);
+    }
 }
