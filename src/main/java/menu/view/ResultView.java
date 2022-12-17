@@ -25,10 +25,7 @@ public class ResultView {
     }
 
     public static void printAll(List<String> names, List<List<String>> allFoods) {
-        List<StringJoiner> stringJoiners = new ArrayList<>();
-        for (int i = 0; i < names.size(); i++) {
-            stringJoiners.add(new StringJoiner(" | ", "[ ", " ]"));
-        }
+        List<StringJoiner> stringJoiners = initStringJoiner(names);
 
         for (int i = 0; i < names.size(); i++) {
             String name = names.get(i);
@@ -40,6 +37,14 @@ public class ResultView {
 
         stringJoiners.forEach(System.out::println);
         System.out.println();
+    }
+
+    private static List<StringJoiner> initStringJoiner(List<String> names) {
+        List<StringJoiner> stringJoiners = new ArrayList<>();
+        for (int i = 0; i < names.size(); i++) {
+            stringJoiners.add(new StringJoiner(" | ", "[ ", " ]"));
+        }
+        return stringJoiners;
     }
 
     public static void printEnd() {
