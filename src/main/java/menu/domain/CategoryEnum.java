@@ -17,15 +17,15 @@ public enum CategoryEnum {
         this.categoryNumber = categoryNumber;
     }
 
-    public static String getCategoryName(int val) {
+    public static String getTransferCategoryName(int val) {
         return Arrays.stream(CategoryEnum.values())
                 .filter(category -> category.categoryNumber == val)
                 .findAny()
                 .get()
-                .getCategoryName();
+                .getTransferCategoryName();
     }
 
-    private String getCategoryName() {
+    private String getTransferCategoryName() {
         return categoryName;
     }
 }

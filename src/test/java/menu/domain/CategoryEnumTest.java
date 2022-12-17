@@ -19,7 +19,7 @@ public class CategoryEnumTest {
         String actual;
 
         // when
-        actual = CategoryEnum.getCategoryName(testValue);
+        actual = CategoryEnum.getTransferCategoryName(testValue);
 
         // then
         assertEquals(actual, expected, "[ERROR] 예상한 카테고리 이름과 다릅니다.");

@@ -26,7 +26,7 @@ public class RandomService {
     }
 
     private String transferCategory(int val) {
-        return CategoryEnum.getCategoryName(val);
+        return CategoryEnum.getTransferCategoryName(val);
     }
 
     public List<String> randomGetMenu(String category, List<String> names) {
