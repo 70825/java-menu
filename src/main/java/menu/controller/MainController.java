@@ -62,5 +62,6 @@ public class MainController {
         ResultView.printResult();
         ResultView.printCategory(weekCategory);
         ResultView.printAll(names, resultMenu);
+        ResultView.printEnd();
     }
 }
