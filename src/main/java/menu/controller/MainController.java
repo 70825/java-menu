@@ -12,11 +12,14 @@ public class MainController {
     public void start() {
         initService.init();
 
-        try {
-            MainView.printMainScreen();
-            List<String> names = MainView.getMainValue();
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage() + NEWLINE);
+        while (true) {
+            try {
+                MainView.printMainScreen();
+                List<String> names = MainView.getMainValue();
+                System.out.println(names);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage() + NEWLINE);
+            }
         }
     }
 }
