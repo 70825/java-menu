@@ -2,7 +2,6 @@ package menu.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import menu.domain.Categories;
-import menu.domain.Foods;
 
 import java.util.Arrays;
 import java.util.List;
