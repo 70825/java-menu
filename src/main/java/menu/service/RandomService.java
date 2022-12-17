@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import menu.controller.MainController;
 import menu.domain.Categories;
 import menu.domain.Category;
+import menu.domain.CategoryEnum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,22 +28,7 @@ public class RandomService {
     }
 
     private String transferCategory(int val) {
-        if (val == 1) {
-            return "일식";
-        }
-        if (val == 2) {
-            return "한식";
-        }
-        if (val == 3) {
-            return "중식";
-        }
-        if (val == 4) {
-            return "아시안";
-        }
-        if (val == 5) {
-            return "양식";
-        }
-        throw new IllegalArgumentException("[ERROR]");
+        return CategoryEnum.getCategoryName(val);
     }
 
     public List<String> randomGetMenu(String category, List<String> names) {
