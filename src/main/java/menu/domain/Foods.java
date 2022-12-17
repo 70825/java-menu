@@ -14,4 +14,16 @@ public class Foods {
     public static List<String> getFoods() {
         return Collections.unmodifiableList(foods);
     }
+
+    public static Boolean findByName(String name) {
+        int result = (int) foods.stream()
+                .filter(food -> food.equals(name))
+                .count();
+
+        if (result != 0) {
+            return true;
+        }
+
+        return false;
+    }
 }
