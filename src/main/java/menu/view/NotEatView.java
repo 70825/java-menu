@@ -28,11 +28,9 @@ public class NotEatView {
 
     private static void validate(List<String> foods) {
         foods.forEach(food -> {
-            Categories.getCategories().forEach(category -> {
-                if (!category.findByName(food)) {
-                    throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
-                }
-            });
+            if (!Categories.findByName(food)) {
+                throw new IllegalArgumentException("[ERROR] 존재하지 않는 메뉴입니다.");
+            };
         });
     }
 }
