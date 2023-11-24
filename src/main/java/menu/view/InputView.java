@@ -1,10 +1,13 @@
 package menu.view;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import menu.dto.DoNotEatFoodByCoachDto;
 import menu.dto.TeamCoachesDto;
-import menu.model.Coach;
-import menu.model.TeamCoaches;
+import menu.model.coach.Coach;
+import menu.model.coach.TeamCoaches;
+import menu.model.food.Food;
 
 public class InputView {
 
@@ -16,10 +19,22 @@ public class InputView {
         return new TeamCoaches(input);
     }
 
-    public void requestInputCoachDoNotEat(TeamCoachesDto teamCoachesDto) {
-        List<Coach> teamCoaches = teamCoachesDto.getTeamCoaches();
-        for (Coach teamCoach : teamCoaches) {
-            System.out.println(teamCoach + "(이)가 못 먹는 메뉴를 입력해주세요");
+    public List<DoNotEatFoodByCoachDto> requestInputCoachDoNotEat(TeamCoachesDto teamCoachesDto) {
+        System.out.println();
+        List<DoNotEatFoodByCoachDto> doNotEatFoodByCoachDtos = new ArrayList<>();
+
+        for (Coach teamCoach : teamCoachesDto.getTeamCoaches()) {
+            System.out.println(teamCoach.getName() + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+            String input = scanner.nextLine();
+
+            List<Food> foods = Food.getFoodsByInput(input);
+            DoNotEatFoodByCoachDto doNotEatFoodByCoachDto = new DoNotEatFoodByCoachDto(teamCoach,
+                foods);
+            doNotEatFoodByCoachDtos.add(doNotEatFoodByCoachDto);
+            System.out.println();
         }
+
+        return doNotEatFoodByCoachDtos;
     }
 }
+
