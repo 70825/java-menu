@@ -10,6 +10,12 @@ import menu.util.Retry;
 
 public class RecommendFood {
 
+    public static List<String> getRecommendFoods() {
+        recommendFoods = Retry.retryOnException(RecommendFood::createAndValidateRecommendFood);
+
+        return recommendFoods;
+    }
+
     private static List<String> recommendFoods;
 
 
@@ -32,7 +38,7 @@ public class RecommendFood {
     private static void validaDuplicateMenu(List<String> foods) {
         for (String food : foods) {
             if (Collections.frequency(foods, food) > 1) {
-                throw new IllegalArgumentException("[ERROR] 동일한 메뉴는 추천 불가능합니다.");
+                throw new IllegalStateException("[ERROR] 동일한 메뉴는 추천 불가능합니다.");
             }
         }
     }
@@ -45,7 +51,7 @@ public class RecommendFood {
 
         for (Integer categoryNumber : categoryNumbers) {
             if (Collections.frequency(categoryNumbers, categoryNumber) > 2) {
-                throw new IllegalArgumentException("[ERROR] 동일 카테고리 내 메뉴는 2회까지만 추천 가능합니다.");
+                throw new IllegalStateException("[ERROR] 동일 카테고리 내 메뉴는 2회까지만 추천 가능합니다.");
             }
         }
     }
@@ -69,7 +75,6 @@ public class RecommendFood {
             String recommendMenu = Randoms.shuffle(collectMenus).get(0);
             recommendFoods.add(recommendMenu);
         }
-        System.out.println("recommendFoods = " + recommendFoods);
         return recommendFoods;
     }
 }
