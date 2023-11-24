@@ -1,29 +1,40 @@
 package menu.controller;
 
+import java.util.List;
+import menu.dto.DoNotEatFoodByCoachDto;
+import menu.dto.FinalRecommendMenuByCoachDto;
 import menu.dto.TeamCoachesDto;
-import menu.model.TeamCoaches;
+import menu.model.Manager;
+import menu.model.coach.TeamCoaches;
 import menu.util.Retry;
 import menu.view.InputView;
+import menu.view.OutputView;
 
 public class MenuController {
 
     private final InputView inputView;
+    private final OutputView outputView;
 
-    public MenuController(InputView inputView) {
+    public MenuController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
+        this.outputView = outputView;
     }
 
 
     public void run() {
-        System.out.println("점심 메뉴 추천을 시작합니다.");
+        outputView.printStartRecommend();
 
         TeamCoaches teamCoaches = Retry.retryOnException(inputView::requestInputCoach);
-        System.out.println(teamCoaches.getTeamCoaches());
 
         TeamCoachesDto teamCoachesDto = new TeamCoachesDto(teamCoaches.getTeamCoaches());
 
-        inputView.requestInputCoachDoNotEat(teamCoachesDto);
+        List<DoNotEatFoodByCoachDto> doNotEatFoodByCoachDtos = Retry.retryOnExceptionWithParam(
+            inputView::requestInputCoachDoNotEat, teamCoachesDto);
 
+        outputView.printResultRecommend();
+        outputView.printCalendar();
+        outputView.printCategory();
+        outputView.printResult(doNotEatFoodByCoachDtos);
+        outputView.printCompleted();
     }
-
 }
