@@ -11,8 +11,15 @@ public class Controller {
         askCoachName();
     }
 
-    private void askCoachName() {
-        new Coach(InputView.askCoachName());
+    private Coach askCoachName() {
+        while (true) {
+            try {
+                return new Coach(InputView.askCoachName());
+            } catch (IllegalArgumentException e) {
+                OutputView.printError(e);
+            }
+        }
+
 
     }
 
