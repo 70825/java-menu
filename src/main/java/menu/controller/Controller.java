@@ -16,6 +16,7 @@ public class Controller {
     public void init() {
         CoachFoodPreferences coachFoodPreferences = enrollCoaches();
         MenuRecommendator menuRecommendator = initCategory();
+        System.out.println(menuRecommendator.getWeeklyCategory());
     }
 
     public CoachFoodPreferences enrollCoaches() {
