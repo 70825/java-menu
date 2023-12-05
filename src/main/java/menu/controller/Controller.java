@@ -1,5 +1,6 @@
 package menu.controller;
 
+import menu.domain.ChooseCategory;
 import menu.domain.Coach;
 import menu.domain.NonPreferredMenu;
 import menu.view.InputView;
@@ -13,7 +14,11 @@ public class Controller {
         OutputView.welcomeMessage();
         Coach coach = askCoachName();
         NonPreferredMenu nonPreferredMenu = askNonPreferred(coach.getCoachNames());
+        ChooseCategory chooseCategory = new ChooseCategory();
+        chooseCategory.choose();
     }
+
+
 
     private NonPreferredMenu askNonPreferred(List<String> coachNames) {
         return new NonPreferredMenu(InputView.askNonPreferred(coachNames));
