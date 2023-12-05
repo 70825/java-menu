@@ -1,9 +1,6 @@
 package menu.controller;
 
-import menu.domain.ChooseCategory;
-import menu.domain.Coach;
-import menu.domain.MenuCategory;
-import menu.domain.NonPreferredMenu;
+import menu.domain.*;
 import menu.view.InputView;
 import menu.view.OutputView;
 
@@ -18,7 +15,11 @@ public class Controller {
         ChooseCategory chooseCategory = new ChooseCategory();
         chooseCategory.choose();
         printCategory(chooseCategory.getCategory());
+        Menu menu = new Menu();
+        menu.Recommend(chooseCategory.getCategory(),coach.getCoachNames());
     }
+
+
 
     private void printCategory(List<MenuCategory> category) {
         OutputView.printCategory(category);

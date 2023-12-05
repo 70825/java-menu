@@ -1,5 +1,7 @@
 package menu.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,6 +27,28 @@ public class Menu {
                     "피자","파니니"));
 
 
+    public void Recommend(List<MenuCategory> category, List<String> coachNames) {
+        for(MenuCategory categoryName : category){
+            categoryCheck(categoryName);
+        }
+    }
 
-
+    private String categoryCheck(MenuCategory categoryName) {
+        if(categoryName.equals(MenuCategory.JAPANESE)){
+            return Randoms.shuffle(JAPANESE).get(0);
+        }
+        if(categoryName.equals(MenuCategory.KOREAN)){
+            return Randoms.shuffle(KOREAN).get(0);
+        }
+        if(categoryName.equals(MenuCategory.CHINESE)){
+            return Randoms.shuffle(CHINESE).get(0);
+        }
+        if(categoryName.equals(MenuCategory.ASIAN)){
+            return Randoms.shuffle(ASIAN).get(0);
+        }
+        if(categoryName.equals(MenuCategory.WESTERN)){
+            return Randoms.shuffle(WESTERN).get(0);
+        }
+        throw new IllegalArgumentException();
+    }
 }
