@@ -2,6 +2,7 @@ package menu.controller;
 
 import menu.domain.ChooseCategory;
 import menu.domain.Coach;
+import menu.domain.MenuCategory;
 import menu.domain.NonPreferredMenu;
 import menu.view.InputView;
 import menu.view.OutputView;
@@ -16,8 +17,12 @@ public class Controller {
         NonPreferredMenu nonPreferredMenu = askNonPreferred(coach.getCoachNames());
         ChooseCategory chooseCategory = new ChooseCategory();
         chooseCategory.choose();
+        printCategory(chooseCategory.getCategory());
     }
 
+    private void printCategory(List<MenuCategory> category) {
+        OutputView.printCategory(category);
+    }
 
 
     private NonPreferredMenu askNonPreferred(List<String> coachNames) {

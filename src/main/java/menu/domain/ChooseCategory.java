@@ -47,4 +47,8 @@ public class ChooseCategory {
                 .filter(choice -> choice.equals(value))
                 .count();
     }
+
+    public List<MenuCategory> getCategory() {
+        return this.choicesCategory;
+    }
 }
