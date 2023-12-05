@@ -13,5 +13,7 @@ public class OutputView {
         System.out.println(WELCOME_MESSAGE);
     }
 
-
+    public static void recommendMenu(){
+        System.out.println(RECOMMEND_RESULT_MESSAGE);
+    }
 }
