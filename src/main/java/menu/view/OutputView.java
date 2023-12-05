@@ -1,5 +1,7 @@
 package menu.view;
 
+import java.util.List;
+
 public class OutputView {
     private static final String WELCOME_MESSAGE = "점심 메뉴 추천을 시작합니다.";
     private static final String RECOMMEND_RESULT_MESSAGE = "메뉴 추천 결과입니다.";
@@ -10,4 +12,6 @@ public class OutputView {
     public static void welcomeMessage(){
         System.out.println(WELCOME_MESSAGE);
     }
+
+
 }

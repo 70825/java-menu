@@ -9,4 +9,7 @@ public class Coach {
         this.coachNames = coachNames;
     }
 
+    public List<String> getCoachNames() {
+        return this.coachNames;
+    }
 }
