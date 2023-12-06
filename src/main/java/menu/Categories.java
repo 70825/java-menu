@@ -7,14 +7,14 @@ public enum Categories {
     ASIAN("아시안"),
     WESTERN("양식");
 
-    private final String name;
+    private final String nameInKorean;
 
-    Categories(String name) {
-        this.name = name;
+    Categories(String nameInKorean) {
+        this.nameInKorean = nameInKorean;
     }
 
-    public String getName() {
-        return name;
+    public String getNameInKorean() {
+        return nameInKorean;
     }
 
     public static Categories get(int randomNumber) {

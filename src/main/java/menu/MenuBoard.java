@@ -2,6 +2,9 @@ package menu;
 
 import static menu.Categories.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public enum MenuBoard {
     규동(JAPANESE), 우동(JAPANESE), 미소시루(JAPANESE), 스시(JAPANESE), 가츠동(JAPANESE), 오니기리(JAPANESE),
     하이라이스(JAPANESE), 라멘(JAPANESE), 오코노미야끼(JAPANESE),
@@ -35,6 +38,15 @@ public enum MenuBoard {
             }
         }
         return false;
+    }
+
+    public static List<String> getMenus() {
+        List<String> menus = new ArrayList<>();
+
+        for (MenuBoard menu : MenuBoard.values()) {
+            menus.add(menu.name());
+        }
+        return menus;
     }
 
 }
