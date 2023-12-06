@@ -1,12 +1,11 @@
 package menu.view;
 
-import static menu.MenuBoard.menuBoardcontains;
-
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import menu.MenuBoard;
 import menu.constants.ErrorMessage;
 
 public class InputView {
@@ -117,7 +116,7 @@ public class InputView {
 
         String[] strings = input.split(",");
         for (String str : strings) {
-            if (menuBoardcontains(str)) {
+            if (MenuBoard.contains(str)) {
                 return true;
             }
         }

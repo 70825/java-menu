@@ -10,7 +10,6 @@ public class WeeklyCategory {
 
     public WeeklyCategory(LinkedHashMap<Days, Categories> weeklyCategory) {
         this.weeklyCategory = weeklyCategory;
-        System.out.println(weeklyCategory);
     }
 
     public List<Days> getWeeklyCategory() {
@@ -36,4 +35,17 @@ public class WeeklyCategory {
         }
         return categoriesInKorean;
     }
+
+    public String getDaysLine() {
+        List<String> koreanDays = getDaysInKorean();
+        String daysLine = "[ 구분 | " + String.join(" | ", koreanDays) + " ]";
+        return daysLine;
+    }
+
+    public String getCategoriesLine() {
+        List<String> koreanCategories = getCategoriesInKorean();
+        String categoriesLine = "[ 카테고리 | " + String.join(" | ", koreanCategories) + " ]";
+        return categoriesLine;
+    }
+
 }

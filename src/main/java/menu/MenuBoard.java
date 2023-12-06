@@ -31,14 +31,16 @@ public enum MenuBoard {
         return type;
     }
 
-    public static boolean menuBoardcontains(String input) {
+    public static boolean contains(String input) {
+        String formattedInput = input.replace(" ", "_");
         for (MenuBoard menu : MenuBoard.values()) {
-            if (menu.name().equals(input)) {
+            if (menu.name().equals(formattedInput)) {
                 return true;
             }
         }
         return false;
     }
+
 
     public static List<String> getMenus() {
         List<String> menus = new ArrayList<>();

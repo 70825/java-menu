@@ -21,9 +21,7 @@ public class Controller {
         CoachFoodPreferences coachFoodPreferences = enrollCoaches();
         WeeklyCategory weeklyCategory = initCategory();
         MenuRecommendation menuRecommendation = generateMenuRecommendation(weeklyCategory, coachFoodPreferences);
-        showDays(weeklyCategory);
-        showCategories(weeklyCategory);
-        showMenuRecommendation(menuRecommendation);
+        showResult(weeklyCategory, menuRecommendation);
     }
 
     public CoachFoodPreferences enrollCoaches() {
@@ -99,25 +97,28 @@ public class Controller {
         return menuBoard.getType().equals(category);
     }
 
+    public void showResult(WeeklyCategory weeklyCategory, MenuRecommendation menuRecommendation) {
+        showDays(weeklyCategory);
+        showCategories(weeklyCategory);
+        showMenuRecommendation(menuRecommendation);
+    }
+
     private void showDays(WeeklyCategory weeklyCategory) {
-        List<String> koreanDays = weeklyCategory.getDaysInKorean();
-        String daysLine = "[ 구분 | " + String.join(" | ", koreanDays) + " ]";
+        String daysLine = weeklyCategory.getDaysLine();
         OutputView.printMessage(daysLine);
     }
 
     private void showCategories(WeeklyCategory weeklyCategory) {
-        List<String> koreanCategories = weeklyCategory.getCategoriesInKorean();
-        String categoriesLine = "[ 카테고리 | " + String.join(" | ", koreanCategories) + " ]";
+        String categoriesLine = weeklyCategory.getCategoriesLine();
         OutputView.printMessage(categoriesLine);
     }
 
     private void showMenuRecommendation(MenuRecommendation menuRecommendation) {
+        // 리팩토링 필요
         LinkedHashMap<String, List<String>> recommendation = menuRecommendation.getMenuRecommendation();
         for (Map.Entry<String, List<String>> entry : recommendation.entrySet()) {
-            String line = "[ " + entry.getKey() + " | " + String.join(" | ", entry.getValue()) + " ]";
-            OutputView.printMessage(line);
+            String menus = "[ " + entry.getKey() + " | " + String.join(" | ", entry.getValue()) + " ]";
+            OutputView.printMessage(menus);
         }
     }
-
-
 }
