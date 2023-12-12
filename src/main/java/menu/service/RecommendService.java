@@ -6,10 +6,7 @@ import menu.domain.Coaches;
 import menu.domain.Day;
 import menu.domain.Menu;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RecommendService {
 
@@ -34,19 +31,26 @@ public class RecommendService {
         }
     }
 
+    public Map<Coach, Map<Day, String>> getRecommendMenu() {
+        return recommendMenu;
+    }
+
+    public Map<Day, String> getCategoryByDay() {
+        return categoryByDay;
+    }
+
     private void setRecommendMenuByDay(Coach coach, Day day, String category) {
         try {
             String pickedMenu = pickRecommendMenu(category, coach.getDislikeMenu());
             validateRecommendMenu(coach, pickedMenu);
             recommendMenu.get(coach).put(day, pickedMenu);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             setRecommendMenuByDay(coach, day, category);
         }
     }
 
     private String pickRecommendMenu(String category, List<String> dislikeMenu) {
-        List<String> menuByCategory = Menu.getMenuByCategory(category);
+        List<String> menuByCategory = new ArrayList<>(Menu.getMenuByCategory(category));
         menuByCategory.removeAll(dislikeMenu);
 
         return Randoms.shuffle(menuByCategory).get(0);
@@ -65,7 +69,6 @@ public class RecommendService {
             validateCateygory(category);
             categoryByDay.put(day, category);
         } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
             setCategoryByDay(day);
         }
     }
