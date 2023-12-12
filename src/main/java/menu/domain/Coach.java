@@ -1,6 +1,6 @@
 package menu.domain;
 
-import static error.ErrorMessage.*;
+import static menu.error.ErrorMessage.*;
 
 public class Coach {
 

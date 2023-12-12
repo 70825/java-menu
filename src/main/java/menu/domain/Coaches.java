@@ -2,7 +2,7 @@ package menu.domain;
 
 import java.util.List;
 
-import static error.ErrorMessage.*;
+import static menu.error.ErrorMessage.*;
 
 public class Coaches {
 

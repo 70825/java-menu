@@ -1,4 +1,4 @@
-package error;
+package menu.error;
 
 public enum ErrorMessage {
     INVALID_COACH_NAME_ERROR("코치 이름은 2글자 이상 4글자 이하입니다."),
