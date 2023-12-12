@@ -28,11 +28,23 @@ public enum Menu {
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 카테고리입니다."));
     }
 
+    public static List<String> getMenuByCategory(String category) {
+        return Arrays.stream(values())
+                .filter(menu -> menu.category.equals(category))
+                .map(Menu::getMenu)
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 카테고리입니다."));
+    }
+
     public int getCode() {
         return code;
     }
 
     public String getCategory() {
         return category;
+    }
+
+    public List<String> getMenu() {
+        return menu;
     }
 }

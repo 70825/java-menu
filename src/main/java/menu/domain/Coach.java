@@ -21,6 +21,14 @@ public class Coach {
         this.dislikeMenu = dislikeMenu;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public List<String> getDislikeMenu() {
+        return dislikeMenu;
+    }
+
     private void validateCoach(String name) {
         checkName(name);
     }
