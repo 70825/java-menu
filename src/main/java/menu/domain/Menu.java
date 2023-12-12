@@ -1,5 +1,6 @@
 package menu.domain;
 
+import java.util.Arrays;
 import java.util.List;
 
 public enum Menu {
@@ -10,20 +11,28 @@ public enum Menu {
     WESTERN(5, "양식", List.of("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
 
     private final int code;
-    private final String name;
+    private final String category;
     private final List<String> menu;
 
-    Menu(int code, String name, List<String> menu) {
+    Menu(int code, String category, List<String> menu) {
         this.code = code;
-        this.name = name;
+        this.category = category;
         this.menu = menu;
+    }
+
+    public static String getCategoryByCode(int code) {
+        return Arrays.stream(values())
+                .filter(menu -> menu.code == code)
+                .map(Menu::getCategory)
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 카테고리입니다."));
     }
 
     public int getCode() {
         return code;
     }
 
-    public String getName() {
-        return name;
+    public String getCategory() {
+        return category;
     }
 }
