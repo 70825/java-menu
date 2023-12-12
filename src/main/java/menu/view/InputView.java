@@ -23,8 +23,8 @@ public class InputView {
          return Converter.splitWithComma(Console.readLine());
     }
 
-    public static List<String> inputDislikeMenu(String name){
-        System.out.printf(InputMessage.INPUT_DISLIKE_MENU_MESSAGE.message, name);
+    public static List<String> inputDislikeMenu(String coachName){
+        System.out.printf(InputMessage.INPUT_DISLIKE_MENU_MESSAGE.message, coachName);
         return Converter.splitWithComma(Console.readLine());
     }
 }
