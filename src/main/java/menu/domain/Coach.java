@@ -8,7 +8,7 @@ import static menu.error.ErrorMessage.*;
 public class Coach {
 
     private String name;
-    private List<Menu> dislikeMenu;
+    private List<String> dislikeMenu;
 
     public Coach(String name) {
         validateCoach(name);
@@ -16,7 +16,7 @@ public class Coach {
         dislikeMenu = new ArrayList<>();
     }
 
-    public void setDislikeMenu(List<Menu> dislikeMenu) {
+    public void setDislikeMenu(List<String> dislikeMenu) {
         validateDislikeMenu(dislikeMenu);
         this.dislikeMenu = dislikeMenu;
     }
@@ -25,7 +25,7 @@ public class Coach {
         checkName(name);
     }
 
-    private void validateDislikeMenu(List<Menu> dislikeMenu) {
+    private void validateDislikeMenu(List<String> dislikeMenu) {
         checkDislikeMenuCount(dislikeMenu);
     }
 
@@ -35,7 +35,7 @@ public class Coach {
         }
     }
 
-    private void checkDislikeMenuCount(List<Menu> dislikeMenu) {
+    private void checkDislikeMenuCount(List<String> dislikeMenu) {
         if (!isValidDislikeMenuCount(dislikeMenu)) {
             throw new IllegalArgumentException(INVALID_DISLIKE_MENU_COUNT_ERROR.getMessage());
         }
@@ -45,7 +45,7 @@ public class Coach {
         return 2 <= name.length() && name.length() <= 4;
     }
 
-    private boolean isValidDislikeMenuCount(List<Menu> dislikeMenu) {
+    private boolean isValidDislikeMenuCount(List<String> dislikeMenu) {
         return 0 <= dislikeMenu.size() && dislikeMenu.size() <= 2;
     }
 }
