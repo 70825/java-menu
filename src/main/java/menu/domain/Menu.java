@@ -1,71 +1,29 @@
 package menu.domain;
 
+import java.util.List;
+
 public enum Menu {
+    JAPANESE(1, "일식", List.of("규동", "우동", "미소시루", "스시", "가츠동", "오니기리", "하이라이스", "라멘", "오코노미야끼")),
+    KOREAN(2, "한식", List.of("김밥", "김치찌개", "쌈밥", "된장찌개", "비빔밥", "칼국수", "불고기", "떡볶이", "제육볶음")),
+    CHINESE(3, "중식", List.of("깐풍기", "볶음면", "동파육", "짜장면", "짬뽕", "마파두부", "탕수육", "토마토 달걀볶음", "고추잡채")),
+    ASIAN(4, "아시안", List.of("팟타이", "카오 팟", "나시고렝", "파인애플 볶음밥", "쌀국수", "똠얌꿍", "반미", "월남쌈", "분짜")),
+    WESTERN(5, "양식", List.of("라자냐", "그라탱", "뇨끼", "끼슈", "프렌치 토스트", "바게트", "스파게티", "피자", "파니니"));
 
-    // Japanese
-    GYUDON("규동", CuisineType.JAPANESE),
-    UDON("우동", CuisineType.JAPANESE),
-    MISOSHIRU("미소시루", CuisineType.JAPANESE),
-    SUSHI("스시", CuisineType.JAPANESE),
-    KATSUDON("가츠동", CuisineType.JAPANESE),
-    ONIGIRI("오니기리", CuisineType.JAPANESE),
-    HAYARICE("하이라이스", CuisineType.JAPANESE),
-    RAMEN("라면", CuisineType.JAPANESE),
-    OKONOMIYAKI("오코노미야끼", CuisineType.JAPANESE),
-    // Korean
-    KIMBAP("김밥", CuisineType.KOREAN),
-    KIMCHI_STEW("김치찌개", CuisineType.KOREAN),
-    SSAM_BAP("쌈밥", CuisineType.KOREAN),
-    DOENJANG_STEW("된장찌개", CuisineType.KOREAN),
-    BIBIMBAP("비빔밥", CuisineType.KOREAN),
-    KALGUKSU("칼국수", CuisineType.KOREAN),
-    BULGOGI("불고기", CuisineType.KOREAN),
-    TTEOKBOKKI("떡볶이", CuisineType.KOREAN),
-    JAEYUK_BOKKEUM("제육볶음", CuisineType.KOREAN),
-    // Chinese
-    KUNG_PAO_CHICKEN("깐풍기", CuisineType.CHINESE),
-    STIR_FRIED_NOODLES("볶음면", CuisineType.CHINESE),
-    SWEET_AND_SOUR_PORK("동파육", CuisineType.CHINESE),
-    JAJANGMYEON("짜장면", CuisineType.CHINESE),
-    JJAMPPONG("짬뽕", CuisineType.CHINESE),
-    MAPO_TOFU("마파두부", CuisineType.CHINESE),
-    TANGSUYUK("탕수육", CuisineType.CHINESE),
-    TOMATO_EGG_STIR_FRY("토마토 달걀볶음", CuisineType.CHINESE),
-    PEPPER_JAPCHAE("고추잡채", CuisineType.CHINESE),
-    // Asian
-    PAD_THAI("팟타이", CuisineType.ASIAN),
-    KAO_PAD("카오 팟", CuisineType.ASIAN),
-    NASI_GORENG("나시고렝", CuisineType.ASIAN),
-    PINEAPPLE_FRIED_RICE("파인애플 볶음밥", CuisineType.ASIAN),
-    PHO("쌀국수", CuisineType.ASIAN),
-    TOM_YUM_KUNG("똠얌꿍", CuisineType.ASIAN),
-    BANH_MI("반미", CuisineType.ASIAN),
-    SUMMER_ROLLS("월남쌈", CuisineType.ASIAN),
-    KHMER_NOODLE("분짜", CuisineType.ASIAN),
-    // Western
-    LASAGNA("라자냐", CuisineType.WESTERN),
-    GRATIN("그라탱", CuisineType.WESTERN),
-    NYOKKI("뇨끼", CuisineType.WESTERN),
-    QUICHE("끼슈", CuisineType.WESTERN),
-    FRENCH_TOAST("프렌치 토스트", CuisineType.WESTERN),
-    BAGUETTE("바게트", CuisineType.WESTERN),
-    SPAGHETTI("스파게티", CuisineType.WESTERN),
-    PIZZA("피자", CuisineType.WESTERN),
-    PANINI("파니니", CuisineType.WESTERN);
-
+    private final int code;
     private final String name;
-    private final CuisineType cuisineType;
+    private final List<String> menu;
 
-    Menu(String name, CuisineType cuisineType) {
+    Menu(int code, String name, List<String> menu) {
+        this.code = code;
         this.name = name;
-        this.cuisineType = cuisineType;
+        this.menu = menu;
+    }
+
+    public int getCode() {
+        return code;
     }
 
     public String getName() {
         return name;
-    }
-
-    public CuisineType getCuisineType() {
-        return cuisineType;
     }
 }
