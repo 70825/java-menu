@@ -26,6 +26,7 @@ public class Coaches {
             throw new IllegalArgumentException(INVALID_COACH_COUNT_ERROR.getMessage());
         }
     }
+
     private boolean isValidCoachCount(List<Coach> coaches) {
         return 2 <= coaches.size() && coaches.size() <= 5;
     }

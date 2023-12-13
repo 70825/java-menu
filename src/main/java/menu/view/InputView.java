@@ -18,12 +18,13 @@ public class InputView {
             this.message = message;
         }
     }
-    public static List<String> inputCoachName(){
+
+    public static List<String> inputCoachName() {
         System.out.println(InputMessage.INPUT_COACH_NAMES_MESSAGE.message);
-         return Converter.splitWithComma(Console.readLine());
+        return Converter.splitWithComma(Console.readLine());
     }
 
-    public static List<String> inputDislikeMenu(String coachName){
+    public static List<String> inputDislikeMenu(String coachName) {
         System.out.printf(InputMessage.INPUT_DISLIKE_MENU_MESSAGE.message, coachName);
         return Converter.splitWithComma(Console.readLine());
     }
