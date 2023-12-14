@@ -11,4 +11,8 @@ public class Coach {
     private String name;
     private List<Menu> hateMenu = new ArrayList<>();
     private Map<Weekday, Menu> recommendMenu = new HashMap<>();
+
+    public Coach(String name) {
+        this.name = name;
+    }
 }
