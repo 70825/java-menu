@@ -1,5 +1,6 @@
 package menu;
 
+import menu.domain.Coach;
 import menu.service.InputService;
 import menu.service.MenuService;
 import menu.service.OutputService;
@@ -18,6 +19,8 @@ public class Controller {
     public void run() {
         outputService.printServiceStartMessage();
         initCoachName();
+        initCoachHateMenus();
+        calculateResult();
         outputService.printServiceCloseMessage();
     }
 
@@ -34,6 +37,44 @@ public class Controller {
                 System.out.println(e.getMessage());
             }
         }
+    }
+
+    private void initCoachHateMenus() {
+        List<Coach> coaches = menuService.getCoaches();
+        for (Coach coach : coaches) {
+            setCoachHateMenu(coach);
+        }
+    }
+
+
+
+    private void setCoachHateMenu(Coach coach) {
+        while (true) {
+            try {
+                String inputCoachHateMenu = inputService.inputCoachHateMenuMessage(coach.getName());
+                if (inputCoachHateMenu.isEmpty() || inputCoachHateMenu == null) {
+                    return;
+                }
+                List<String> coachHateMenu = ParseUtil.stringToStringList(inputCoachHateMenu);
+                validator.validateCoachHateMenuSize(coachHateMenu);
+                menuService.initCoachHateMenus(coachHateMenu, coach);
+                return;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    private void calculateResult() {
+//        String categories = menuService.getCategories();
+//        outputService.printMenuRecommendResult(categories);
+
+        menuService.drawRecommend();
+        String categories = menuService.getCategories();
+        List<String> recommendMenus = menuService.getRecommendMenus();
+        outputService.printMenuRecommendResult(categories, recommendMenus);
+
+//        menuService.getRecommendCategories();
     }
 
 

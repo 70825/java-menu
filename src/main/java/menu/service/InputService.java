@@ -11,4 +11,9 @@ public class InputService {
         System.out.println(INPUT_COACH_NAME_MESSAGE);
         return Console.readLine();
     }
+
+    public String inputCoachHateMenuMessage(String coachName) {
+        System.out.println(coachName + INPUT_COACH_HATE_MENU_MESSAGE);
+        return Console.readLine();
+    }
 }
