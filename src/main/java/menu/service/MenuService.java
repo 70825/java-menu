@@ -9,9 +9,10 @@ import menu.domain.Weekday;
 import java.util.*;
 
 public class MenuService {
+    private final static int MAX_CATEGORY_DUPLICATE_COUNT = 2;
 
     private List<Coach> coaches = new ArrayList<>();
-    private Map<Weekday, MenuCategory> categories = new HashMap<>();
+    private Map<Weekday, MenuCategory> categories = new LinkedHashMap<>();
 
     public void initCoaches(List<String> coachNames) {
         for (String name : coachNames) {
@@ -41,11 +42,11 @@ public class MenuService {
 
     private List<MenuCategory> drawRecommendCategory() {
         List<MenuCategory> menuCategories = new ArrayList<>();
-        while (menuCategories.size() < 5) {
-            int randomNumber = Randoms.pickNumberInRange(0, MenuCategory.values().length-1);
-            MenuCategory category = MenuCategory.values()[randomNumber];
+        while (menuCategories.size() < Weekday.values().length) {
+            int randomNumber = Randoms.pickNumberInRange(1, MenuCategory.values().length);
+            MenuCategory category = MenuCategory.values()[randomNumber - 1];
 
-            if (Collections.frequency(menuCategories, category) < 2) {
+            if (Collections.frequency(menuCategories, category) < MAX_CATEGORY_DUPLICATE_COUNT) {
                 menuCategories.add(category);
             }
         }

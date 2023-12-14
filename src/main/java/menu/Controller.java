@@ -66,15 +66,10 @@ public class Controller {
     }
 
     private void calculateResult() {
-//        String categories = menuService.getCategories();
-//        outputService.printMenuRecommendResult(categories);
-
         menuService.drawRecommend();
         String categories = menuService.getCategories();
         List<String> recommendMenus = menuService.getRecommendMenus();
         outputService.printMenuRecommendResult(categories, recommendMenus);
-
-//        menuService.getRecommendCategories();
     }
 
 
